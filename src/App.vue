@@ -1,31 +1,43 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import TopNav from './components/TopNav.vue'
+import Overlay from './components/Overlay.vue'
+import fetchFromContentful from './helpers/helperFunctions'
+import { onMounted, ref } from 'vue'
+
+const overlayIsOpen = ref(false)
+function setOverlayState(bool) {
+  overlayIsOpen.value = bool
+}
+onMounted(async () => {
+  try {
+    await fetchFromContentful('andreasPortfolio').then((resp) => {
+      console.log('resp', resp)
+    })
+  } catch (error) {
+    throw error
+  }
+})
 </script>
 
 <template>
+  <Overlay v-if="overlayIsOpen" @closeOverlay="setOverlayState(false)" />
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
+    <TopNav msg="Andreas Granér" @openOverlay="setOverlayState(true)" />
   </header>
 
-  <RouterView />
+  <!--  <RouterView /> -->
 </template>
 
 <style scoped>
 header {
   line-height: 1.5;
   max-height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
 }
-
+/*
 .logo {
   display: block;
   margin: 0 auto 2rem;
@@ -54,10 +66,10 @@ nav a {
 
 nav a:first-of-type {
   border: 0;
-}
+} */
 
 @media (min-width: 1024px) {
-  header {
+  /* header {
     display: flex;
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
@@ -80,6 +92,6 @@ nav a:first-of-type {
 
     padding: 1rem 0;
     margin-top: 1rem;
-  }
+  } */
 }
 </style>
