@@ -6,7 +6,7 @@ defineEmits(['closeOverlay'])
   <div class="overlay" @click="$emit('closeOverlay')"></div>
 </template>
 
-<style scoped>
+<style type="scss" scoped>
 .overlay {
   height: 100%;
   width: 100%;

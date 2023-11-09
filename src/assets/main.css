@@ -1,6 +1,6 @@
 @import './base.css';
 
-#app {
+/* #app {
  
   height: 100%;
   width: 100%;
@@ -25,6 +25,8 @@ a,
   body {
     display: flex;
     place-items: center;
+    width: 100%;
+    overflow: hidden;
   }
 
   #app {
@@ -32,4 +34,4 @@ a,
     grid-template-columns: 1fr 1fr;
     padding: 0;
   }
-}
+} */

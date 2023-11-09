@@ -9,10 +9,17 @@ const overlayIsOpen = ref(false)
 function setOverlayState(bool) {
   overlayIsOpen.value = bool
 }
+const portfolioImages = ref()
 onMounted(async () => {
   try {
     await fetchFromContentful('andreasPortfolio').then((resp) => {
-      console.log('resp', resp)
+      portfolioImages.value = resp
+        .map((item) => {
+          const destructedItem = item.fields
+          destructedItem.url = item.fields.picture.fields.file.url
+          return destructedItem
+        })
+        .sort((a, b) => a.order - b.order)
     })
   } catch (error) {
     throw error
@@ -21,21 +28,56 @@ onMounted(async () => {
 </script>
 
 <template>
-  <Overlay v-if="overlayIsOpen" @closeOverlay="setOverlayState(false)" />
-  <header>
-    <TopNav msg="Andreas Granér" @openOverlay="setOverlayState(true)" />
-  </header>
+  <div class="app">
+    <Overlay v-if="overlayIsOpen" @closeOverlay="setOverlayState(false)" />
+    <header>
+      <TopNav msg="Andreas Granér" @openOverlay="setOverlayState(true)" />
+    </header>
+    <div class="grid-container">
+      <div v-for="image in portfolioImages" :key="image.order">
+        <img :src="image.url" class="gallery-img" />
+      </div>
+    </div>
 
-  <!--  <RouterView /> -->
+    <!--  <RouterView /> -->
+  </div>
 </template>
 
-<style scoped>
+<style lang="scss" >
+body {
+  background-color: $babyBlue;
+}
 header {
   line-height: 1.5;
   max-height: 100vh;
   width: 100%;
   position: absolute;
   top: 0;
+}
+.grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 30% [col-start]);
+  grid-template-rows: auto;
+  grid-gap: 5%;
+  padding: 4%;
+  margin-top: 5%;
+
+  img {
+    /*     padding: 10px; */
+    /* background: $blueHighlight; */
+    -webkit-box-shadow: 0 0 24px -9px white;
+    box-shadow: 0 0 30px $blueHighlight;
+    /* box-shadow: 0px -25px 20px -20px rgba(179, 227, 254, 1),
+      0px -2px 23px 15px rgba(179, 227, 254, 1), 0px 25px 20px -20px rgba(179, 227, 254, 1),
+      -25px -17px 20px -20px rgba(179, 227, 254, 1); */
+  }
+}
+.app {
+  max-width: 100vw;
+}
+.gallery-img {
+  max-width: 100%;
 }
 /*
 .logo {
