@@ -42,9 +42,15 @@ onMounted(async () => {
   height: 50px;
   width: 50px;
   margin-left: 4%;
+  z-index: 2;
+  cursor: pointer;
+
+  /*   filter: invert(70%) sepia(44%) saturate(4331%) hue-rotate(229deg) brightness(100%) contrast(104%);
+  filter: invert(81%) sepia(4%) saturate(5576%) hue-rotate(176deg) brightness(103%) contrast(99%);
+  filter: invert(98%) sepia(2%) saturate(0%) hue-rotate(247deg) brightness(104%) contrast(102%); */
 }
 .name {
-  color: white;
+  color: black;
   font-weight: 300;
   position: absolute;
   width: 100%;
@@ -72,6 +78,7 @@ onMounted(async () => {
   margin-right: 4%;
   a {
     cursor: pointer;
+    z-index: 2;
     img {
       height: 100%;
     }
