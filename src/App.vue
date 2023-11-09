@@ -39,6 +39,7 @@ onMounted(async () => {
         <img :src="image.url" class="gallery-img" />
       </div>
     </div>
+    <footer class="footer"></footer>
 
     <!--  <RouterView /> -->
   </div>
@@ -56,12 +57,12 @@ header {
   width: 100%;
   position: fixed;
   top: 0;
-  .blue-line {
+  /*   .blue-line {
     width: 100%;
     position: fixed;
     height: 0.5%;
     background-color: white;
-  }
+  } */
 }
 .grid-container {
   width: 100%;
@@ -71,6 +72,7 @@ header {
   grid-gap: 5%;
   padding: 4%;
   margin-top: 5%;
+  margin-bottom: 8%;
 
   img {
     /*     padding: 10px; */
@@ -87,6 +89,8 @@ header {
 }
 .gallery-img {
   max-width: 100%;
+}
+.footer {
 }
 /*
 .logo {

@@ -61,6 +61,7 @@ onMounted(async () => {
 .topNav {
   width: 100%;
   background: $topNav;
+  background: white;
   display: flex;
   flex-direction: row;
   align-items: center;
