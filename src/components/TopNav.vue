@@ -28,7 +28,7 @@ onMounted(async () => {
 <template>
   <div class="topNav">
     <img class="hamburger" src="@/assets/menu-burger.svg" @click="$emit('openOverlay')" />
-    <h1 class="green"></h1>
+    <h1 class="name">Andreas Granér</h1>
     <div class="links">
       <a v-for="image in headerMenuLinks" :key="image.name" :href="image.url">
         <img :src="image.image" alt="" />
@@ -41,16 +41,24 @@ onMounted(async () => {
 .hamburger {
   height: 50px;
   width: 50px;
-  background: $purple;
+  margin-left: 4%;
+}
+.name {
+  color: white;
+  font-weight: 300;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 3px;
 }
 
 .topNav {
   width: 100%;
-  background: $purple;
+  background: $topNav;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 1rem 4%;
+  padding: 1rem 0;
   justify-content: space-between;
   height: 70px;
 }
@@ -61,6 +69,7 @@ onMounted(async () => {
   justify-content: space-between;
   width: 17%;
   height: 100%;
+  margin-right: 4%;
   a {
     cursor: pointer;
     img {

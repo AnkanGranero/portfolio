@@ -32,6 +32,7 @@ onMounted(async () => {
     <Overlay v-if="overlayIsOpen" @closeOverlay="setOverlayState(false)" />
     <header>
       <TopNav msg="Andreas Granér" @openOverlay="setOverlayState(true)" />
+      <div class="blue-line" />
     </header>
     <div class="grid-container">
       <div v-for="image in portfolioImages" :key="image.order">
@@ -44,15 +45,23 @@ onMounted(async () => {
 </template>
 
 <style lang="scss" >
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,300;0,500;1,100;1,300&display=swap');
 body {
   background-color: $babyBlue;
+  font-family: 'Josefin Sans', sans-serif;
 }
 header {
   line-height: 1.5;
   max-height: 100vh;
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
+  .blue-line {
+    width: 100%;
+    position: fixed;
+    height: 0.5%;
+    background-color: white;
+  }
 }
 .grid-container {
   width: 100%;
