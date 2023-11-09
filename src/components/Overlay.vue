@@ -30,8 +30,8 @@ a {
   color: white;
 
   text-decoration: none;
-  font-weight: 400;
-  font-size: 1.5rem;
+  font-weight: 300;
+  font-size: 1.9rem;
 }
 
 @media (min-width: 1024px) {

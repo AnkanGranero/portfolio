@@ -46,7 +46,7 @@ onMounted(async () => {
 </template>
 
 <style lang="scss" >
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,300;0,500;1,100;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,500;1,100;1,300&display=swap');
 body {
   background-color: $babyBlue;
   font-family: 'Josefin Sans', sans-serif;
