@@ -4,10 +4,10 @@ defineEmits(['closeOverlay'])
 
 <template>
   <div class="overlay" @click="$emit('closeOverlay')">
-    <a href="">HOME</a>
-    <a href="">ART</a>
-    <a href="">MUSIC</a>
     <a href="">ABOUT</a>
+    <a href="">ART</a>
+    <a href="">ANIMATION</a>
+    <a href="">MUSIC</a>
   </div>
 </template>
 
