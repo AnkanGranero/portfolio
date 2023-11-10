@@ -109,7 +109,7 @@ onMounted(async () => {
   .topNav {
     width: 100%;
     background: $topNav;
-    background: white;
+    background: $coldPurple;
     display: flex;
     flex-direction: row;
     align-items: center;
